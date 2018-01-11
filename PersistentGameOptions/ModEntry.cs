@@ -16,17 +16,11 @@ namespace PersistentGameOptions
 
         public override void Entry(IModHelper helper)
         {
-            // sets up helpers to read/write to data.json
-            ModData GameOptions = helper.ReadJsonFile<ModData>($"data/data.json");
-            helper.WriteJsonFile($"data/data.json", GameOptions);
-
             // get chosen options 
             MenuEvents.MenuClosed += this.MenuEvents_MenuClosed;
 
             // set options upon loading 
             SaveEvents.AfterLoad += this.Load_Options;
-            // set options for new game
-            MenuEvents.MenuClosed += this.Load_New;
         }
 
 
@@ -43,20 +37,21 @@ namespace PersistentGameOptions
         private void Load_Options(object sender, EventArgs e)
         {
             ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"data/data.json");
-            setOptionsFromData(gameOptions);
-            this.Monitor.Log("Loading saved options.", LogLevel.Info);
-        }
 
-        // loads options for new game
-        private void Load_New(object sender, EventArgsClickableMenuClosed e)
-        {
-            if(e.PriorMenu is TitleMenu)
+            // Loads data.json if it exists
+            if (gameOptions != null)
             {
-                ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"data/data.json");
                 setOptionsFromData(gameOptions);
                 this.Monitor.Log("Loading saved options.", LogLevel.Info);
+
+            } else
+            // creates initial data.json 
+            {
+                Save_Options();
             }
+            
         }
+
 
         // sets game options to those saved in data.json 
         private void setOptionsFromData(ModData options)

@@ -43,7 +43,7 @@ namespace PersistentGameOptions
         private void Load_Options(object sender, EventArgs e)
         {
             ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"data/data.json");
-            Game1.options = convertFromModData(gameOptions);
+            setOptionsFromData(gameOptions);
             this.Monitor.Log("Loading saved options.", LogLevel.Info);
         }
 
@@ -53,15 +53,16 @@ namespace PersistentGameOptions
             if(e.PriorMenu is TitleMenu)
             {
                 ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"data/data.json");
-                Game1.options = convertFromModData(gameOptions);
+                setOptionsFromData(gameOptions);
                 this.Monitor.Log("Loading saved options.", LogLevel.Info);
             }
         }
 
-        // converts options from data.json file to class Options 
-        private Options convertFromModData(ModData options)
+        // sets game options to those saved in data.json 
+        private void setOptionsFromData(ModData options)
         {
-            Options newOptions = new Options();
+            var newOptions = Game1.options;
+
             newOptions.lightingQuality = options.lightingQuality;
             newOptions.alwaysShowToolHitLocation = options.alwaysShowToolHitLocation;
             newOptions.autoRun = options.autoRun;
@@ -91,7 +92,6 @@ namespace PersistentGameOptions
             newOptions.zoomLevel = options.zoomLevel;
             newOptions.footstepVolumeLevel = options.footstepVolumeLevel;
             newOptions.ambientVolumeLevel = options.ambientVolumeLevel;
-            return newOptions;
         }
 
         // saves game options to data.json 

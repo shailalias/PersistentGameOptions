@@ -3,3 +3,4 @@ D:\Github\PersistentGameOptions\PersistentGameOptions\bin\Release\PersistentGame
 D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Release\PersistentGameOptions.csproj.CoreCompileInputs.cache
 D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Release\PersistentGameOptions.dll
 D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Release\PersistentGameOptions.pdb
+D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Release\PersistentGameOptions.csprojResolveAssemblyReference.cache

@@ -64,4 +64,5 @@ namespace PersistentGameOptions
         public int input_slot12 = 31;
         */
     }
+    
 }

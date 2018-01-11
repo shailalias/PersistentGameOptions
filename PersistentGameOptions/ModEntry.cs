@@ -16,8 +16,9 @@ namespace PersistentGameOptions
 
         public override void Entry(IModHelper helper)
         {
-            ModData GameOptions = helper.ReadJsonFile<ModData>($"Data/data.json") ?? new ModData();
-            helper.WriteJsonFile($"Data/data.json", GameOptions);
+            // sets up helpers to read/write to data.json
+            ModData GameOptions = helper.ReadJsonFile<ModData>($"data/data.json");
+            helper.WriteJsonFile($"data/data.json", GameOptions);
 
             // get chosen options 
             MenuEvents.MenuClosed += this.MenuEvents_MenuClosed;
@@ -29,6 +30,7 @@ namespace PersistentGameOptions
         }
 
 
+        // saves options to data.json after the Game Menu closes 
         private void MenuEvents_MenuClosed(object sender, EventArgsClickableMenuClosed e)
         {
             if (e.PriorMenu is GameMenu) 
@@ -37,24 +39,26 @@ namespace PersistentGameOptions
             }
         }
 
+        // loads options from data.json after choosing a save
         private void Load_Options(object sender, EventArgs e)
         {
-            ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"Data/data.json");
+            ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"data/data.json");
             Game1.options = convertFromModData(gameOptions);
             this.Monitor.Log("Loading saved options.", LogLevel.Info);
-
         }
 
+        // loads options for new game
         private void Load_New(object sender, EventArgsClickableMenuClosed e)
         {
             if(e.PriorMenu is TitleMenu)
             {
-                ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"Data/data.json");
+                ModData gameOptions = this.Helper.ReadJsonFile<ModData>($"data/data.json");
                 Game1.options = convertFromModData(gameOptions);
                 this.Monitor.Log("Loading saved options.", LogLevel.Info);
             }
         }
 
+        // converts options from data.json file to class Options 
         private Options convertFromModData(ModData options)
         {
             Options newOptions = new Options();
@@ -90,6 +94,7 @@ namespace PersistentGameOptions
             return newOptions;
         }
 
+        // saves game options to data.json 
         private void Save_Options()
         {
             Options optionReader = Game1.options;
@@ -124,7 +129,7 @@ namespace PersistentGameOptions
                 ambientVolumeLevel = optionReader.ambientVolumeLevel
             };
 
-            this.Helper.WriteJsonFile($"Data/data.json", temp);
+            this.Helper.WriteJsonFile($"data/data.json", temp);
             this.Monitor.Log("Saving options.", LogLevel.Info);
         }
     }

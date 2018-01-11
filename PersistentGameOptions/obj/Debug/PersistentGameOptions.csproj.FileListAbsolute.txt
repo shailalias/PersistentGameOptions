@@ -4,3 +4,9 @@ c:\users\techy\source\repos\PersistentGameOptions\PersistentGameOptions\obj\Debu
 c:\users\techy\source\repos\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.csproj.CoreCompileInputs.cache
 c:\users\techy\source\repos\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.dll
 c:\users\techy\source\repos\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.pdb
+D:\Github\PersistentGameOptions\PersistentGameOptions\bin\Debug\PersistentGameOptions.dll
+D:\Github\PersistentGameOptions\PersistentGameOptions\bin\Debug\PersistentGameOptions.pdb
+D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.csprojResolveAssemblyReference.cache
+D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.csproj.CoreCompileInputs.cache
+D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.dll
+D:\Github\PersistentGameOptions\PersistentGameOptions\obj\Debug\PersistentGameOptions.pdb
